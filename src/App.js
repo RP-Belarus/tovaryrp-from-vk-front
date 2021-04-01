@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'  // Bootstrap. См.: https://react-bootstrap.github.io/getting-started/introduction/
 
 import MainPage from './pages/Main'
 import LinksPage from './pages/Links'

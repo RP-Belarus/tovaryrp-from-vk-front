@@ -1,18 +1,23 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Navbar, Nav } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 
 const mainNavigation  = props => (
     <header>
-        <div className="main-navigation__logo">
-            <h1>Товары РП</h1>
-        </div>
-        <div className="main-navigation__item">
-            <ul>
-                <li><NavLink to="/">Главная</NavLink></li>
-                <li><NavLink to="/links">Ссылки</NavLink></li>
-                <li><NavLink to="/contacts">Контакты</NavLink></li>
-            </ul>
-        </div>
+        <Navbar bg="light" variant="light">
+            <Navbar.Brand>Товары РП</Navbar.Brand>
+            <Nav className="mr-auto">
+                <LinkContainer to="/">
+                    <Nav.Link>Главная</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/links">
+                    <Nav.Link>Ссылки</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to="/contacts">
+                    <Nav.Link>Контакты</Nav.Link>
+                </LinkContainer>
+            </Nav>
+        </Navbar>
     </header>
 )
 
