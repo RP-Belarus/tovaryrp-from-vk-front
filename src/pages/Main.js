@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 
+import SellersMap from '../components/Sellers/SellersMap/SellersMap'
+import SellersList from '../components/Sellers/SellersList/SellersList'
+import ProductsList from '../components/Products/ProductsList'
+
 class MainPage extends Component {
+
     constructor(props) {
         super(props)
+        this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
         this.state = {
             isLoaded: false,
             sellers: []
@@ -10,7 +16,7 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        fetch('https://tovaryrp-from-vk.herokuapp.com/sellers')
+        fetch(this.SELLERS_API_URL)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -25,15 +31,12 @@ class MainPage extends Component {
         return (
             <>
                 <h1>Главная страница</h1>
-                <p>Продавцы:</p>
-                <ul>
-                    {this.state.sellers.map(seller =>
-                        <li key={seller._id}>
-                            <img src={seller.vk_group_info.photo_50}/>
-                            {seller.name}
-                        </li>
-                    )}
-                </ul>
+                <SellersMap/>
+                <SellersList
+                    sellers={this.state.sellers}
+                />
+                <hr/>
+                <ProductsList/>
             </>
         )
     }
