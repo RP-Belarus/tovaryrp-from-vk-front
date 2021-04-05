@@ -11,7 +11,10 @@ class MainPage extends Component {
         this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
         this.state = {
             isLoaded: false,
-            sellers: []
+            sellers: [],
+            //mapCenter: [54.81975,28.15401],
+            mapCenter: [53.8,28.15401],
+            mapZoom: 5
         }
     }
 
@@ -31,7 +34,10 @@ class MainPage extends Component {
         return (
             <>
                 <h1>Главная страница</h1>
-                <SellersMap/>
+                <SellersMap
+                    mapCenter={this.state.mapCenter}
+                    mapZoom={this.state.mapZoom}
+                />
                 <SellersList
                     sellers={this.state.sellers}
                 />
