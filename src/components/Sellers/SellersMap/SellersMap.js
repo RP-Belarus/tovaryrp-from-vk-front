@@ -8,6 +8,7 @@ const sellersMap = props => {
     // ------  Attribution and Url for OpenStreetMap ----------
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const url ='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    // ------ Параметры карты Leaflet
     const mapCenter = props.mapCenter;
     const mapZoom = props.mapZoom;
 
