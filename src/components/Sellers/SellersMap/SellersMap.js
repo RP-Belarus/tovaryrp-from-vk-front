@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-import { MapContainer, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 
 import SellerMarker from './SellerMarker/SellerMarker'
@@ -26,9 +26,14 @@ const sellersMap = props => {
                     url={url}
                     attribution={attribution}
                 />
-                {/*<SellerMarker*/}
-                    {/*position={props.sellers[0].lat, props.sellers[0].lon}*/}
-                {/*/>*/}
+                {
+                    props.sellers.map((seller, index) =>
+                        <Marker
+                            key={index}
+                            position={[seller.lat, seller.lon]}
+                        />
+                    )
+                }
             </MapContainer>
         </div>
     )
