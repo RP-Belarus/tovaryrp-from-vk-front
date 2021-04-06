@@ -14,7 +14,7 @@ const sellersMap = props => {
 
     return (
         <div>
-            <p>Карта продавцов</p>
+            <p>Выберите продавца на карте:</p>
             <MapContainer
                 center={mapCenter}
                 zoom={mapZoom}

@@ -1,51 +1,34 @@
 import React, { Component } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 
 import SellersMap from '../components/Sellers/SellersMap/SellersMap'
 import SellersList from '../components/Sellers/SellersList/SellersList'
 import ProductsList from '../components/Products/ProductsList'
 
-class MainPage extends Component {
+const mainPage = props => {
 
-    constructor(props) {
-        super(props)
-        this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
-        this.state = {
-            isLoaded: false,
-            sellers: [],
-            //mapCenter: [54.81975,28.15401],
-            mapCenter: [53.8,28.15401],
-            mapZoom: 5
-        }
-    }
-
-    componentDidMount() {
-        fetch(this.SELLERS_API_URL)
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    isLoaded: true,
-                    sellers: data
-                })
-                console.log(data);
-            })
-    }
-
-    render() {
-        return (
-            <>
-                <h1>Главная страница</h1>
-                <SellersMap
-                    mapCenter={this.state.mapCenter}
-                    mapZoom={this.state.mapZoom}
-                />
-                <SellersList
-                    sellers={this.state.sellers}
-                />
-                <hr/>
-                <ProductsList/>
-            </>
-        )
-    }
+    return (
+        <>
+            <h1>Главная страница</h1>
+            <Container>
+                <Row>
+                    <Col>
+                        <SellersMap
+                            mapCenter={props.mapCenter}
+                            mapZoom={props.mapZoom}
+                        />
+                        <SellersList
+                            isLoaded={props.isLoaded}
+                            sellers={props.sellers}
+                        />
+                    </Col>
+                    <Col>
+                        <ProductsList/>
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    )
 }
 
-export default MainPage
+export default mainPage
