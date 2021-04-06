@@ -30,7 +30,7 @@ class App extends Component {
                     isLoaded: true,
                     sellers: data
                 })
-                //console.log(data);
+                console.log(data);
             })
     }
 

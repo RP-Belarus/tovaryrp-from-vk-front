@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
+
+import SellerMarker from './SellerMarker/SellerMarker'
 
 const sellersMap = props => {
 
@@ -24,6 +26,9 @@ const sellersMap = props => {
                     url={url}
                     attribution={attribution}
                 />
+                {/*<SellerMarker*/}
+                    {/*position={props.sellers[0].lat, props.sellers[0].lon}*/}
+                {/*/>*/}
             </MapContainer>
         </div>
     )

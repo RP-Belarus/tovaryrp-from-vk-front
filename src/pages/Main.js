@@ -16,6 +16,7 @@ const mainPage = props => {
                         <SellersMap
                             mapCenter={props.mapCenter}
                             mapZoom={props.mapZoom}
+                            sellers={props.sellers}
                         />
                         <SellersList
                             isLoaded={props.isLoaded}
