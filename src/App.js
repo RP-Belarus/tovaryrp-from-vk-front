@@ -17,7 +17,7 @@ class App extends Component {
             isLoaded: false,
             sellers: [],
             //mapCenter: [54.81975,28.15401],
-            mapCenter: [53.8,28.15401],
+            mapCenter: [54.1,27.9],
             mapZoom: 5
         }
     }

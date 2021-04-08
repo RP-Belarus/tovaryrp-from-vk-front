@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css';
+import { MapContainer, TileLayer } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
+import 'react-leaflet-markercluster/dist/styles.min.css'
+
 
 import SellerMarker from './SellerMarker/SellerMarker'
 
 const sellersMap = props => {
-
     // ------  Attribution and Url for OpenStreetMap ----------
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
     const url ='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -26,14 +28,16 @@ const sellersMap = props => {
                     url={url}
                     attribution={attribution}
                 />
-                {
-                    props.sellers.map((seller, index) =>
-                        <Marker
-                            key={index}
-                            position={[seller.lat, seller.lon]}
-                        />
-                    )
-                }
+                {/*<MarkerClusterGroup>*/}
+                    {
+                        props.sellers.map((seller, index) =>
+                            <SellerMarker
+                                key={index}
+                                seller={seller}
+                            />
+                        )
+                    }
+                {/*</MarkerClusterGroup>*/}
             </MapContainer>
         </div>
     )
