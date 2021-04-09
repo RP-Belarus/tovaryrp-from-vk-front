@@ -4,7 +4,7 @@ import ProductItem from './ProductItem/ProductItem'
 
 const productsList = props => (
     <div>
-        <p>Список товаров</p>
+        <h4>Список товаров</h4>
         <ProductItem/>
     </div>
 )
