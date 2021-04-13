@@ -5,7 +5,7 @@ import Spinner from '../../../components/Spinner/Spinner'
 const sellersList = props => (
     <div>
         <p>...или из списка:</p>
-        { props.isLoaded
+        { props.sellersLoaded
             ? (
                 <ul>
                 {props.sellers.map(seller =>

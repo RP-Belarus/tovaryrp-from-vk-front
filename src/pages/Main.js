@@ -5,6 +5,7 @@ import SellersMap from '../components/Sellers/SellersMap/SellersMap'
 import SellersList from '../components/Sellers/SellersList/SellersList'
 import SellerDescription from '../components/Sellers/SellerDescription/SellerDescription'
 import ProductsList from '../components/Products/ProductsList'
+import Intro from '../components/Intro/Intro'
 
 const mainPage = props => {
 
@@ -20,16 +21,27 @@ const mainPage = props => {
                             sellers={props.sellers}
                         />
                         <SellersList
-                            isLoaded={props.isLoaded}
+                            sellersLoaded={props.sellersLoaded}
                             sellers={props.sellers}
                             onSellerClick={props.onSellerClick}
                         />
                     </Col>
                     <Col>
-                        <SellerDescription
-                            selectedSeller={props.selectedSeller}
-                        />
-                        <ProductsList/>
+                        { !props.selectedSeller
+                            ? (
+                                <Intro/>
+                            ) : (
+                                <div>
+                                    <SellerDescription
+                                        selectedSeller={props.selectedSeller}
+                                    />
+                                    <ProductsList
+                                        productsLoaded={props.productsLoaded}
+                                        products={props.products}
+                                    />
+                                </div>
+                            )
+                        }
                     </Col>
                 </Row>
             </Container>

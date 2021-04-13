@@ -14,8 +14,10 @@ class App extends Component {
         super(props)
         this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
         this.state = {
-            isLoaded: false,
+            sellersLoaded: false,
             sellers: [],
+            productsLoaded: false,
+            products: [],
             //selectedSellerId: '-70820274',
             selectedSellerId: null,
             selectedSeller: null,
@@ -30,21 +32,30 @@ class App extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    isLoaded: true,
+                    sellersLoaded: true,
                     sellers: data,
                     selectedSeller: data.find(seller => seller.vk_owner_id === this.state.selectedSellerId)
                 })
-                //console.log(data);
-                //console.log('Selected Seller: ', this.state.selectedSeller)
             })
     }
 
     handleSellerClick = (seller_id) => {
+        // Обнуляем список продуктов и флаг, что продукты загружены
         this.setState({
+            products: [],
+            productsLoaded: false,
             selectedSellerId: seller_id,
             selectedSeller: this.state.sellers.find(seller => seller_id === seller.vk_owner_id)
         })
-        //console.log('Clicked on seller: ' + this.state.selectedSellerId)
+        // Получаем товары продавца
+        fetch(this.SELLERS_API_URL + '/' + seller_id)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    products: data.tovary.response.items,
+                    productsLoaded: true
+                })
+            })
     }
 
     render() {
@@ -57,9 +68,11 @@ class App extends Component {
                             <Redirect from="/" to="/main" exact />
                             <Route path="/main">
                                 <MainPage
-                                    isLoaded={this.state.isLoaded}
+                                    sellersLoaded={this.state.sellersLoaded}
                                     sellers={this.state.sellers}
                                     selectedSeller={this.state.selectedSeller}
+                                    productsLoaded={this.state.productsLoaded}
+                                    products={this.state.products}
                                     mapCenter={this.state.mapCenter}
                                     mapZoom={this.state.mapZoom}
                                     onSellerClick={this.handleSellerClick}
