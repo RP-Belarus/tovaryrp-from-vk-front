@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 
 import { MapContainer, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -34,6 +34,9 @@ const sellersMap = props => {
                             <SellerMarker
                                 key={index}
                                 seller={seller}
+                                mapCenter={mapCenter}
+                                openPopup={props.selectedSellerId === seller.vk_owner_id}
+                                onSellerClick={props.onSellerClick}
                             />
                         )
                     }

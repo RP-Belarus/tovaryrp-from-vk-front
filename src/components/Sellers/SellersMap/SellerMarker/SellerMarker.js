@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 
-import { Marker, Popup } from 'react-leaflet'
+import { Marker, Popup, useMap } from 'react-leaflet'
 
 import L from 'leaflet'
 import icon from 'leaflet/dist/images/marker-icon.png'
@@ -17,11 +17,25 @@ const SellerMarker = props => {
     })
     L.Marker.prototype.options.icon = defaultIcon
 
-    const { seller } = props
+    const map = useMap()
+    const markerRef = useRef(null)
+
+    const { seller, openPopup } = props
+
+    useEffect(() => {
+        map.flyTo(props.mapCenter)
+        if (openPopup) markerRef.current.openPopup()
+    }, [openPopup])
 
     return (
         <Marker
+            ref={markerRef}
             position={[seller.lat, seller.lon]}
+            eventHandlers={{
+                click: () => {
+                    props.onSellerClick(seller.vk_owner_id)
+                }
+            }}
         >
             <Popup><b>{seller.name}</b></Popup>
             {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}

@@ -19,7 +19,7 @@ class App extends Component {
             productsLoaded: false,
             products: [],
             //selectedSellerId: '-70820274',
-            selectedSellerId: null,
+            selectedSellerId: '',
             selectedSeller: null,
             //mapCenter: [54.81975,28.15401],
             mapCenter: [54.1,27.9],
@@ -40,13 +40,19 @@ class App extends Component {
     }
 
     handleSellerClick = (seller_id) => {
+        const selectedSeller = this.state.sellers.find(seller => seller.vk_owner_id === seller_id)
+        const { lat, lon } = selectedSeller
+        const coordinates = [lat, lon]
+
         // Обнуляем список продуктов и флаг, что продукты загружены
         this.setState({
             products: [],
             productsLoaded: false,
             selectedSellerId: seller_id,
-            selectedSeller: this.state.sellers.find(seller => seller_id === seller.vk_owner_id)
+            selectedSeller: selectedSeller,
+            mapCenter: coordinates
         })
+
         // Получаем товары продавца
         fetch(this.SELLERS_API_URL + '/' + seller_id)
             .then(response => response.json())
@@ -71,6 +77,7 @@ class App extends Component {
                                     sellersLoaded={this.state.sellersLoaded}
                                     sellers={this.state.sellers}
                                     selectedSeller={this.state.selectedSeller}
+                                    selectedSellerId={this.state.selectedSellerId}
                                     productsLoaded={this.state.productsLoaded}
                                     products={this.state.products}
                                     mapCenter={this.state.mapCenter}

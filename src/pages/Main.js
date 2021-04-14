@@ -8,7 +8,6 @@ import ProductsList from '../components/Products/ProductsList'
 import Intro from '../components/Intro/Intro'
 
 const mainPage = props => {
-
     return (
         <>
             <h1>Главная страница</h1>
@@ -19,11 +18,14 @@ const mainPage = props => {
                             mapCenter={props.mapCenter}
                             mapZoom={props.mapZoom}
                             sellers={props.sellers}
+                            onSellerClick={props.onSellerClick}
+                            selectedSellerId={props.selectedSellerId}
                         />
                         <SellersList
                             sellersLoaded={props.sellersLoaded}
                             sellers={props.sellers}
                             onSellerClick={props.onSellerClick}
+                            selectedSellerId={props.selectedSellerId}
                         />
                     </Col>
                     <Col>
