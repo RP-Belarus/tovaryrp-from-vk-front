@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
 import SellersMap from '../components/Sellers/SellersMap/SellersMap'
@@ -10,8 +10,7 @@ import Intro from '../components/Intro/Intro'
 const mainPage = props => {
     return (
         <>
-            <h1>Главная страница</h1>
-            <Container>
+            <Container fluid>
                 <Row>
                     <Col>
                         <SellersMap

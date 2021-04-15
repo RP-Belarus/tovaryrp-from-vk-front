@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react'
-
+import { Image } from 'react-bootstrap'
 import { Marker, Popup, useMap } from 'react-leaflet'
 
 import L from 'leaflet'
 import icon from 'leaflet/dist/images/marker-icon.png'
 import iconShadow from 'leaflet/dist/images/marker-shadow.png'
+
+import './SellerMarker.css'
 
 const SellerMarker = props => {
 
@@ -37,7 +39,22 @@ const SellerMarker = props => {
                 }
             }}
         >
-            <Popup><b>{seller.name}</b></Popup>
+            <Popup>
+                <table>
+                <tr>
+                    <td>
+                        <Image
+                            className="float-left popup-image"
+                            src={seller.vk_group_info.photo_50}
+                            roundedCircle
+                        />
+                    </td>
+                    <td>
+                        <span>{seller.name}</span>
+                    </td>
+                </tr>
+                </table>
+            </Popup>
             {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}
         </Marker>
     )

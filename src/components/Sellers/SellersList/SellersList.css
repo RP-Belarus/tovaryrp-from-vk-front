@@ -1,0 +1,13 @@
+.list-group-item {
+    padding: 0.25rem 0.25rem;
+}
+
+.seller-active {
+    font-weight: bold;
+    color: darkslategray;
+}
+
+.list-image {
+    width: 40px;
+    margin-right: 0.5rem
+}
