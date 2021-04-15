@@ -1,4 +1,7 @@
 import React from 'react'
+import { Image, Media } from 'react-bootstrap'
+
+import './SellerDescription.css'
 
 const SellerDescription = props => {
     if (!props.selectedSeller) {
@@ -9,10 +12,17 @@ const SellerDescription = props => {
         )
     }
     return (
-        <div>
+        <div className="description-card">
             <h3>{props.selectedSeller.vk_group_info.vk_name}</h3>
-            <img src={props.selectedSeller.vk_group_info.photo_200} alt=""/>
-            <p>{props.selectedSeller.vk_group_info.description}</p>
+            <Image
+                width={150}
+                height={150}
+                className="description-image"
+                src={props.selectedSeller.vk_group_info.photo_200}
+                rounded
+            />
+            <div>{props.selectedSeller.vk_group_info.description}</div>
+            <br clear="all"/>
         </div>
     )
 }
