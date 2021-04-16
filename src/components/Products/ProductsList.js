@@ -11,22 +11,13 @@ const productsList = props => (
         { props.productsLoaded
             ? (
                 <>
-                <CardGroup>
+                {/*<CardGroup>*/}
                     {props.products.map( (product, index) =>
                         <ProductItem
-                            title={product.title}
+                            product={product}
                         />
                     )}
-                </CardGroup>
-                <ul>
-                    { props.products.map( (product, index) =>
-                        <li
-                            key={index}
-                        >
-                            {product.title}
-                        </li>
-                    ) }
-                </ul>
+                {/*</CardGroup>*/}
                 </>
             ) : (
                 <Spinner/>
