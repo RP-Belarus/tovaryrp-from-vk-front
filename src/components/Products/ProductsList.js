@@ -2,6 +2,7 @@ import React from 'react'
 
 import ProductItem from './ProductItem/ProductItem'
 import Spinner from '../../components/Spinner/Spinner'
+import { CardDeck, CardGroup, Card } from 'react-bootstrap'
 
 const productsList = props => (
     <div>
@@ -9,6 +10,14 @@ const productsList = props => (
         {/*<ProductItem/>*/}
         { props.productsLoaded
             ? (
+                <>
+                <CardGroup>
+                    {props.products.map( (product, index) =>
+                        <ProductItem
+                            title={product.title}
+                        />
+                    )}
+                </CardGroup>
                 <ul>
                     { props.products.map( (product, index) =>
                         <li
@@ -18,6 +27,7 @@ const productsList = props => (
                         </li>
                     ) }
                 </ul>
+                </>
             ) : (
                 <Spinner/>
             ) }
