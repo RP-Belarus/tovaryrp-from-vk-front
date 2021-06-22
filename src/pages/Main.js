@@ -35,6 +35,7 @@ const mainPage = props => {
                                 <div>
                                     <SellerDescription
                                         selectedSeller={props.selectedSeller}
+                                        selectedSellerId={props.selectedSellerId}
                                     />
                                     <ProductsList
                                         productsLoaded={props.productsLoaded}

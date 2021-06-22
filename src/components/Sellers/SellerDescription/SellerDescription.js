@@ -22,6 +22,7 @@ const SellerDescription = props => {
                 rounded
             />
             <div>{props.selectedSeller.vk_group_info.description}</div>
+            <p><a href={'http://vk.com/club' + props.selectedSellerId.slice(1)} target="_blank">Перейти на страницу продавца</a></p>
             <br clear="all"/>
         </div>
     )

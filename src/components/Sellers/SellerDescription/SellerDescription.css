@@ -1,8 +1,9 @@
 .description-card {
     height: 230px;
-    overflow: hidden;
+    overflow: auto;
     text-overflow: ellipsis;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 
 .description-image {
