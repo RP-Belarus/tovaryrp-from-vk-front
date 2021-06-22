@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tovaryrp-from-vk-front/precache-manifest.ecc9d45bcfece2d0b62dd34930756a18.js"
+  "/tovaryrp-from-vk-front/precache-manifest.5cc9e0d3f1360f8e052463af02c081de.js"
 );
 
 self.addEventListener('message', (event) => {
