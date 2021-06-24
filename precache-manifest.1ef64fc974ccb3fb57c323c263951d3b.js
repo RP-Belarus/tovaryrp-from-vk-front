@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "19455b77cf43013a5b110a93d6d927a1",
+    "revision": "ccd98b67cf79fc7c18753fb35ffd4222",
     "url": "/tovaryrp-from-vk-front/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tovaryrp-from-vk-front/static/css/2.db332a04.chunk.css"
   },
   {
-    "revision": "c6ac3cfdfce1c9e851b8",
+    "revision": "c2a86084ace1fe4f0a51",
     "url": "/tovaryrp-from-vk-front/static/css/main.fcaf6199.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tovaryrp-from-vk-front/static/js/2.5bb8deae.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c6ac3cfdfce1c9e851b8",
-    "url": "/tovaryrp-from-vk-front/static/js/main.2ebe755f.chunk.js"
+    "revision": "c2a86084ace1fe4f0a51",
+    "url": "/tovaryrp-from-vk-front/static/js/main.72effe95.chunk.js"
   },
   {
     "revision": "97a9cb98c3d9681e0d64",
