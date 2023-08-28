@@ -12,7 +12,8 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props)
-        this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
+        // this.SELLERS_API_URL = 'https://tovaryrp-from-vk.herokuapp.com/sellers'
+        this.SELLERS_API_URL = 'http://localhost:3001/sellers'
         this.state = {
             sellersLoaded: false,
             sellers: [],
@@ -54,13 +55,22 @@ class App extends Component {
         })
 
         // Получаем товары продавца
-        fetch(this.SELLERS_API_URL + '/' + seller_id)
+        fetch(this.SELLERS_API_URL + '/' + seller_id.slice(1))   // slice(1) - удаляем "-" перед seller_id
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    products: data.tovary.response.items,
-                    productsLoaded: true
-                })
+                console.log(data.tovary);
+                console.log(data.tovary.response !== undefined ? 'Есть товары' : 'Нет товаров');
+                if (data.tovary.response !== undefined) {
+                    this.setState({
+                        products: data.tovary.response.items,
+                        productsLoaded: true
+                    })
+                } else {
+                    this.setState({
+                        products: [],
+                        productsLoaded: true
+                    })
+                }
             })
     }
 

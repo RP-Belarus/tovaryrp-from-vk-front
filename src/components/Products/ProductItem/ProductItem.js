@@ -11,7 +11,8 @@ const productItem = props => (
         </Card.Body>
         <Card.Body>
             Цена: {props.product.price.text}<br/>
-            <a href={'http://vk.com/product' + props.product.owner_id + '_' + props.product.id} target="_blank">
+            <a href={'http://vk.com/product' + props.product.owner_id + '_' + props.product.id} target="_blank"
+               rel="noopener noreferrer">
                 Подробнее
             </a>
         </Card.Body>

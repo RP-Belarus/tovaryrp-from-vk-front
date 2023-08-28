@@ -40,7 +40,7 @@ const SellerMarker = props => {
             }}
         >
             <Popup>
-                <table>
+                <table><tbody>
                 <tr>
                     <td>
                         <Image
@@ -53,7 +53,7 @@ const SellerMarker = props => {
                         <span>{seller.name}</span>
                     </td>
                 </tr>
-                </table>
+                </tbody></table>
             </Popup>
             {/*<Tooltip offset={[0,-28]}><b>{village.village_name}</b></Tooltip>*/}
         </Marker>
